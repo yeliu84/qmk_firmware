@@ -41,13 +41,13 @@ const uint16_t keymaps[][MATRIX_ROWS][MATRIX_COLS] PROGMEM = {
      * `-----------------------------------------------------------' `-----------' `---------------' `-------'
      */
     [_BL] = LAYOUT_all(
-                             KC_F13,  KC_F14,  KC_F15,  KC_F16, KC_F17, KC_F18, KC_F19,  KC_F20,  KC_F21,  KC_F22,  KC_F23,  KC_F24,
-    KC_GESC,                 KC_F1,   KC_F2,   KC_F3,   KC_F4,  KC_F5,  KC_F6,  KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,               KC_PSCR, KC_SLCK, KC_PAUS,    KC_VOLD, KC_VOLU, KC_MUTE, KC_PWR,     KC_HELP,
-    KC_GRV,         KC_1,    KC_2,    KC_3,    KC_4,    KC_5,   KC_6,   KC_7,   KC_8,    KC_9,    KC_0,    KC_MINS, KC_EQL,  KC_JYEN, KC_BSPC,     KC_INS,  KC_HOME, KC_PGUP,    KC_NLCK, KC_PSLS, KC_PAST, KC_PMNS,    KC_STOP, KC_AGIN,
-    LALT_T(KC_TAB), KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,   KC_Y,   KC_U,   KC_I,    KC_O,    KC_P,    KC_LBRC, KC_RBRC,          KC_BSLS,     KC_DEL,  KC_END,  KC_PGDN,    KC_P7,   KC_P8,   KC_P9,   KC_PPLS,    KC_MENU, KC_UNDO,
-    LCTL_T(KC_ESC), KC_A,    KC_S,    KC_D,    KC_F,    KC_G,   KC_H,   KC_J,   KC_K,    KC_L,    KC_SCLN, KC_QUOT,          KC_NUHS, KC_ENT,                                    KC_P4,   KC_P5,   KC_P6,   KC_PCMM,    KC_SLCT, KC_COPY,
-    KC_LSFT,        KC_NUBS, KC_Z,    KC_X,    KC_C,    KC_V,   KC_B,   KC_N,   KC_M,    KC_COMM, KC_DOT,  KC_SLSH,          KC_RO,   KC_RSFT,              KC_UP,               KC_P1,   KC_P2,   KC_P3,   KC_PEQL,    KC_EXEC, KC_PSTE,
-    MO(_ML),        KC_LALT, KC_LGUI, KC_MHEN, KC_HANJ,         KC_SPC,         KC_HAEN, KC_HENK, KC_KANA, KC_RGUI, KC_RALT, MO(_FL), KC_RCTL,     KC_LEFT, KC_DOWN, KC_RGHT,    KC_P0,            KC_PDOT, KC_PENT,    KC_FIND, KC_CUT
+                              KC_F13,  KC_F14,  KC_F15,  KC_F16, KC_F17, KC_F18, KC_F19,  KC_F20,  KC_F21,  KC_F22,  KC_F23,  KC_F24,
+    KC_GESC,                  KC_F1,   KC_F2,   KC_F3,   KC_F4,  KC_F5,  KC_F6,  KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,               KC_PSCR, KC_SLCK, KC_PAUS,    KC_VOLD, KC_VOLU, KC_MUTE, KC_PWR,     KC_HELP,
+    KC_GRV,          KC_1,    KC_2,    KC_3,    KC_4,    KC_5,   KC_6,   KC_7,   KC_8,    KC_9,    KC_0,    KC_MINS, KC_EQL,  KC_JYEN, KC_BSPC,     KC_INS,  KC_HOME, KC_PGUP,    KC_NLCK, KC_PSLS, KC_PAST, KC_PMNS,    KC_STOP, KC_AGIN,
+    LALT_T(KC_TAB),  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,   KC_Y,   KC_U,   KC_I,    KC_O,    KC_P,    KC_LBRC, KC_RBRC,          KC_BSLS,     KC_DEL,  KC_END,  KC_PGDN,    KC_P7,   KC_P8,   KC_P9,   KC_PPLS,    KC_MENU, KC_UNDO,
+    LT(_ML, KC_ESC), KC_A,    KC_S,    KC_D,    KC_F,    KC_G,   KC_H,   KC_J,   KC_K,    KC_L,    KC_SCLN, KC_QUOT,          KC_NUHS, KC_ENT,                                    KC_P4,   KC_P5,   KC_P6,   KC_PCMM,    KC_SLCT, KC_COPY,
+    KC_LSFT,         KC_NUBS, KC_Z,    KC_X,    KC_C,    KC_V,   KC_B,   KC_N,   KC_M,    KC_COMM, KC_DOT,  KC_SLSH,          KC_RO,   KC_RSFT,              KC_UP,               KC_P1,   KC_P2,   KC_P3,   KC_PEQL,    KC_EXEC, KC_PSTE,
+    KC_LCTL,         KC_LALT, KC_LGUI, KC_MHEN, KC_HANJ,         KC_SPC,         KC_HAEN, KC_HENK, KC_KANA, KC_RGUI, KC_RALT, MO(_FL), KC_RCTL,     KC_LEFT, KC_DOWN, KC_RGHT,    KC_P0,            KC_PDOT, KC_PENT,    KC_FIND, KC_CUT
     ),
     [_FL] = LAYOUT_all(
                        ______,  ______,  ______, ______, ______,  ______,  ______, ______,  ______, ______, ______, ______,
@@ -59,13 +59,13 @@ const uint16_t keymaps[][MATRIX_ROWS][MATRIX_COLS] PROGMEM = {
     ______,   ______,  ______,  ______,  ______,         ______,           ______, ______,  ______, ______, ______, ______, ______,     ______,______,______,     ______,       ______,______,    ______,______
     ),
     [_ML] = LAYOUT_all(
-                      ______,  ______,  ______,     ______, ______,  ______,  ______,  ______,    ______, ______,        ______,        ______,
-    ______,           ______,  ______,  ______,     ______, ______,  ______,  ______,  ______,    ______, ______,        ______,        ______,             ______,______,______,    ______,______,______,______,    ______,
-    ______,  ______,  ______,  ______,  ______,     ______, ______,  ______,  ______,  ______,    ______, ______,        ______,        ______, ______,     ______,______,______,    ______,______,______,______,    ______,______,
-    KC_TAB,  ______,  ______,  ______,  ______,     ______, ______,  ______,  ______,  ______,    ______, SGUI(KC_LBRC), SGUI(KC_RBRC),         ______,     ______,______,______,    ______,______,______,______,    ______,______,
-    KC_CAPS, ______,  ______,  ______,  ______,     ______, KC_LEFT, KC_DOWN, KC_UP,   KC_RIGHT,  ______, ______,                       ______, ______,                              ______,______,______,______,    ______,______,
-    ______,  ______,  ______,  ______,  LCTL(KC_C), ______, ______,  ______,  ______,  ______,    ______, ______,                       ______, ______,            ______,           ______,______,______,______,    ______,______,
-    ______,  ______,  ______,  ______,  ______,             ______,           ______,  ______,    ______, ______,        ______,        ______, ______,     ______,______,______,    ______,       ______,______,    ______,______
+                                  ______,        ______,     ______,     ______,     ______,     ______,     ______,     ______,        ______,        ______,         ______,        ______,
+    LCTL(KC_GRV),                 ______,        ______,     ______,     ______,     ______,     ______,     ______,     ______,        ______,        ______,         ______,        ______,                   ______,______,______,                           ______,______,______,______,    ______,
+    LCTL(KC_GRV),  LCTL(KC_1),    LCTL(KC_2),    LCTL(KC_3), LCTL(KC_4), LCTL(KC_5), LCTL(KC_6), LCTL(KC_7), LCTL(KC_8), LCTL(KC_9),    LCTL(KC_0),    LCTL(KC_MINS),  LCTL(KC_EQL),  ______, ______,           ______,______,______,                           ______,______,______,______,    ______,______,
+    LCTL(KC_TAB),  LCTL(KC_Q),    LCTL(KC_W),    LCTL(KC_E), LCTL(KC_R), LCTL(KC_T), LCTL(KC_Y), LCTL(KC_U), LCTL(KC_I), LCTL(KC_O),    LCTL(KC_P),    SGUI(KC_LBRC),  SGUI(KC_RBRC),         LCTL(KC_BSLS),    ______,______,______,                           ______,______,______,______,    ______,______,
+    ______,        LCTL(KC_A),    LCTL(KC_S),    LCTL(KC_D), LCTL(KC_F), LCTL(KC_G), KC_LEFT,    KC_DOWN,    KC_UP,      KC_RIGHT,      LCTL(KC_SCLN), LCTL( KC_QUOT),                ______, ______,                                                           ______,______,______,______,    ______,______,
+    LCTL(KC_LSFT), ______,        LCTL(KC_Z),    LCTL(KC_X), LCTL(KC_C), LCTL(KC_V), LCTL(KC_B), LCTL(KC_N), LCTL(KC_M), LCTL(KC_COMM), LCTL(KC_DOT),  LCTL(KC_SLSH),                 ______, LCTL(KC_RSFT),                  LCTL(KC_UP),                      ______,______,______,______,    ______,______,
+    KC_LCTL,       LCTL(KC_LALT), LCTL(KC_LGUI), ______,     ______,                 LCTL(KC_SPC),           ______,     ______,        ______,        LCTL(KC_RGUI),  LCTL(KC_RALT), ______, ______,          LCTL(KC_LEFT), LCTL(KC_DOWN), LCTL(KC_RIGHT),    ______,       ______,______,    ______,______
     ),
 };
 
