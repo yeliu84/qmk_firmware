@@ -17,9 +17,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include QMK_KEYBOARD_H
 
-#define _BL 0
-#define _FL 1
-#define _ML 2
+enum layer_names {
+    _BL,
+    _FL,
+    _ML
+};
 
 const uint16_t keymaps[][MATRIX_ROWS][MATRIX_COLS] PROGMEM = {
     /* 0: plain Qwerty without layer switching
@@ -47,16 +49,16 @@ const uint16_t keymaps[][MATRIX_ROWS][MATRIX_COLS] PROGMEM = {
     LALT_T(KC_TAB),  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,   KC_Y,   KC_U,   KC_I,    KC_O,    KC_P,    KC_LBRC, KC_RBRC,          KC_BSLS,     KC_DEL,  KC_END,  KC_PGDN,    KC_P7,   KC_P8,   KC_P9,   KC_PPLS,    KC_MENU, KC_UNDO,
     LT(_ML, KC_ESC), KC_A,    KC_S,    KC_D,    KC_F,    KC_G,   KC_H,   KC_J,   KC_K,    KC_L,    KC_SCLN, KC_QUOT,          KC_NUHS, KC_ENT,                                    KC_P4,   KC_P5,   KC_P6,   KC_PCMM,    KC_SLCT, KC_COPY,
     KC_LSFT,         KC_NUBS, KC_Z,    KC_X,    KC_C,    KC_V,   KC_B,   KC_N,   KC_M,    KC_COMM, KC_DOT,  KC_SLSH,          KC_RO,   KC_RSFT,              KC_UP,               KC_P1,   KC_P2,   KC_P3,   KC_PEQL,    KC_EXEC, KC_PSTE,
-    KC_LCTL,         KC_LALT, KC_LGUI, KC_MHEN, KC_HANJ,         KC_SPC,         KC_HAEN, KC_HENK, KC_KANA, KC_RGUI, KC_RALT, MO(_FL), KC_RCTL,     KC_LEFT, KC_DOWN, KC_RGHT,    KC_P0,            KC_PDOT, KC_PENT,    KC_FIND, KC_CUT
+    KC_LCTL,         KC_LALT, KC_LGUI, KC_MHEN, KC_HANJ,         KC_SPC,         KC_HAEN, KC_HENK, KC_KANA, KC_RGUI, KC_RALT, KC_APP,  MO(_FL),     KC_LEFT, KC_DOWN, KC_RGHT,    KC_P0,            KC_PDOT, KC_PENT,    KC_FIND, KC_CUT
     ),
     [_FL] = LAYOUT_all(
-                       ______,  ______,  ______, ______, ______,  ______,  ______, ______,  ______, ______, ______, ______,
-    ______,            ______,  ______,  ______, ______, ______,  ______,  ______, ______,  ______, ______, ______, ______,             ______,______,KC_MUTE,    ______,______,______,______,    ______,
-    ______,   KC_F1,   KC_F2,   KC_F3,   KC_F4,  KC_F5,  KC_F6,   KC_F7,   KC_F8,  KC_F9,   KC_F10, KC_F11, KC_F12, ______, ______,     ______,______,KC_VOLU,    ______,______,______,______,    ______,______,
-    KC_TAB,   ______,  ______,  ______,  ______, ______, ______,  ______,  ______, ______,  ______, ______, ______,         ______,     ______,RESET, KC_VOLD,    ______,______,______,______,    ______,______,
-    KC_CAPS,  ______,  ______,  ______,  ______, ______, ______,  ______,  ______, ______,  ______, ______,         ______, ______,                               ______,______,______,______,    ______,______,
-    ______,   ______,  ______,  ______,  ______, ______, ______,  ______,  ______, ______,  ______, ______,         ______, ______,            ______,            ______,______,______,______,    ______,______,
-    ______,   ______,  ______,  ______,  ______,         ______,           ______, ______,  ______, ______, ______, ______, ______,     ______,______,______,     ______,       ______,______,    ______,______
+                       ______,  ______,  ______,      ______,       ______,  ______,  ______, ______,              ______,               ______,           ______, ______,
+    ______,            ______,  ______,  ______,      ______,       ______,  ______,  ______, ______,              ______,               ______,           ______, ______,                   ______,______,KC_MUTE,    ______,______,______,______,    ______,
+    ______,   KC_F1,   KC_F2,   KC_F3,   KC_F4,       KC_F5,        KC_F6,   KC_F7,   KC_F8,  KC_F9,               KC_F10,               KC_F11,           KC_F12, ______, ______,           ______,______,KC_VOLU,    ______,______,______,______,    ______,______,
+    KC_TAB,   ______,  ______,  ______,  ______,      LALT(KC_F12), ______,  ______,  ______, ______,              SGUI(LALT(KC_P)),     ______,           ______,         SGUI(KC_F12),     ______,RESET, KC_VOLD,    ______,______,______,______,    ______,______,
+    KC_CAPS,  ______,  ______,  ______,  LALT(KC_F1), ______,       ______,  ______,  ______, ______,              ______,               ______,                   ______, ______,                                     ______,______,______,______,    ______,______,
+    ______,   ______,  ______,  ______,  ______,      ______,       ______,  ______,  ______, LALT(LGUI(KC_LEFT)), LALT(LGUI(KC_RIGHT)), LALT(LGUI(KC_F)),         ______, ______,                  ______,            ______,______,______,______,    ______,______,
+    ______,   ______,  ______,  ______,  ______,                    ______,           ______, ______,              ______,               ______,           ______, ______, ______,           ______,______,______,     ______,       ______,______,    ______,______
     ),
     [_ML] = LAYOUT_all(
                                   ______,        ______,     ______,     ______,     ______,     ______,     ______,     ______,        ______,        ______,         ______,        ______,
