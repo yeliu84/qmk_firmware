@@ -1,5 +1,8 @@
-/*
-Copyright 2012 Jun Wako <wakojun@gmail.com>
+# TODO
+- [ ] Make SuperDuper mode fully-compatible in Windows by swapping GUI with Ctrl
+
+# LICENSE
+Copyright 2019 Manassarn Manoonchai manassarn@gmail.com @narze
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -13,22 +16,3 @@ GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
-*/
-
-#include <avr/io.h>
-#include "stdint.h"
-#include "led.h"
-
-
-void led_set(uint8_t usb_led)
-{
-    if (usb_led & (1<<USB_LED_CAPS_LOCK)) {
-        // output high
-        DDRC |= (1<<5);
-        PORTC |= (1<<5);
-    } else {
-        // Hi-Z
-        DDRC &= ~(1<<5);
-        PORTC &= ~(1<<5);
-    }
-}
