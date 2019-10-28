@@ -16,16 +16,18 @@
 #include QMK_KEYBOARD_H
 
 // Helpful defines
-#define _______ KC_TRNS
+#define ______ KC_TRNS
 
 // Each layer gets a name for readability, which is then used in the keymap matrix below.
 // The underscores don't mean anything - you can have a layer called STUFF or any other name.
 // Layer names don't all need to be of the same length, obviously, and you can also skip them
 // entirely and just use numbers.
-#define _L0  0
-#define _LF1 1 // fn layer
-#define _LF2 2 // fn layer
-#define _LC  3 // ctrl layer
+enum layer_names {
+    _L0,  // base layer
+    _LF1, // fn layer 1
+    _LF2, // fn layer 2
+    _LC   // ctrl layer
+};
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_L0] = LAYOUT_tkl_ansi(
@@ -37,28 +39,28 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_LCTL,         KC_LALT, KC_LGUI,                            KC_SPC,                             KC_RGUI, KC_RALT, MO(_LF1), KC_RCTL,      KC_LEFT, KC_DOWN, KC_RGHT  \
     ),
     [_LF1] = LAYOUT_tkl_ansi(
-        RESET,               _______,    _______, _______,          _______,      _______, _______, _______, _______,             KC_MSTP,              KC_MPLY,       KC_MPRV,       KC_MNXT,      KC_MUTE, KC_VOLD, KC_VOLU, \
-        _______, _______,    _______,    _______, _______,          _______,      _______, _______, _______, _______,             _______,              _______,       _______,       _______,      _______, _______, _______, \
-        KC_TAB,  _______,    _______,    _______, LSFT(KC_F6),      LALT(KC_F12), _______, _______, _______, _______,             SGUI(LALT(KC_P)),     SGUI(KC_LBRC), SGUI(KC_RBRC), _______,      _______, _______, _______, \
-        KC_CAPS, SGUI(KC_A), SGUI(KC_F), _______, LALT(KC_F1),      _______,      KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT,             _______,              _______,                      KC_MSEL,                                 \
-        _______,             _______,    _______, LSFT(LALT(KC_I)), _______,      _______, _______, _______, LALT(LGUI(KC_LEFT)), LALT(LGUI(KC_RIGHT)), _______,                      _______,               _______,          \
-        _______, _______,    _______,                                             _______,                                        _______,              MO(_LF2),      _______,       _______,      _______, _______, _______  \
+        RESET,               ______,     ______, ______,           ______,       ______, ______, ______, ______,              KC_MSTP,              KC_MPLY,       KC_MPRV,       KC_MNXT,           KC_MUTE, KC_VOLD, KC_VOLU, \
+        ______,  KC_F1,      KC_F2,      KC_F3,  KC_F4,            KC_F5,        KC_F6,  KC_F7,  KC_F8,  KC_F9,               KC_F10,               KC_F11,        KC_F12,        SGUI(KC_F12),      ______,  ______,  ______,  \
+        KC_TAB,  ______,     ______,     ______, LSFT(KC_F6),      LALT(KC_F12), ______, ______, ______, ______,              SGUI(LALT(KC_P)),     SGUI(KC_LBRC), SGUI(KC_RBRC), ______,            ______,  ______,  ______,  \
+        KC_CAPS, SGUI(KC_A), SGUI(KC_F), ______, LALT(KC_F1),      ______,       ______, ______, ______, ______,              ______,               ______,                       KC_MSEL,                                      \
+        ______,              ______,     ______, LSFT(LALT(KC_I)), ______,       ______, ______, ______, LALT(LGUI(KC_LEFT)), LALT(LGUI(KC_RIGHT)), LALT(LGUI(KC_F)),             ______,                     ______,           \
+        ______,  ______,     ______,                                             ______,                                      ______,               MO(_LF2),      ______,        ______,            ______,  ______,  ______   \
     ),
     [_LF2] = LAYOUT_tkl_ansi(
-        _______,            _______, _______, _______,      _______,      _______, _______, _______, _______, _______, _______, _______, _______,      _______, _______, _______, \
-        _______, _______,   _______, _______, _______,      _______,      _______, _______, _______, _______, _______, _______, _______, _______,      _______, _______, _______, \
-        _______, LCA(KC_Q), _______, _______, LALT(KC_F11), SGUI(KC_F12), _______, _______, _______, _______, _______, _______, _______, _______,      _______, _______, _______, \
-        _______, _______,   _______, _______, _______,      _______,      _______, _______, _______, _______, _______, _______,          _______,                                 \
-        _______,            _______, _______, _______,      _______,      _______, _______, _______, _______, _______, _______,          _______,               _______,          \
-        _______, _______,   _______,                                      _______,                            _______, _______, _______, _______,      _______, _______, _______  \
+        ______,            ______, ______, ______,       ______,       ______, ______, ______, ______, ______, ______, ______, ______,      ______, ______, ______, \
+        ______, ______,    ______, ______, ______,       ______,       ______, ______, ______, ______, ______, ______, ______, ______,      ______, ______, ______, \
+        ______, LCA(KC_Q), ______, ______, LALT(KC_F11), SGUI(KC_F12), ______, ______, ______, ______, ______, ______, ______, ______,      ______, ______, ______, \
+        ______, ______,    ______, ______, ______,       ______,       ______, ______, ______, ______, ______, ______,         ______,                              \
+        ______,            ______, ______, ______,       ______,       ______, ______, ______, ______, ______, ______,         ______,              ______,         \
+        ______, ______,    ______,                                     ______,                         ______, ______, ______, ______,      ______, ______, ______  \
     ),
     [_LC] = LAYOUT_tkl_ansi(
-        LCTL(KC_ESC),                 LCTL(KC_F1),   LCTL(KC_F2), LCTL(KC_F3), LCTL(KC_F4), LCTL(KC_F5), LCTL(KC_F6), LCTL(KC_F7), LCTL(KC_F8),    LCTL(KC_F9),   LCTL(KC_F10),   LCTL(KC_F11),   LCTL(KC_F12),      _______,       _______,       _______,        \
-        LCTL(KC_GRV),  LCTL(KC_1),    LCTL(KC_2),    LCTL(KC_3),  LCTL(KC_4),  LCTL(KC_5),  LCTL(KC_6),  LCTL(KC_7),  LCTL(KC_8),  LCTL(KC_9),     LCTL(KC_0),    LCTL(KC_MINUS), LCTL(KC_EQUAL), LCTL(KC_BSPC),     _______,       _______,       _______,        \
-        LCTL(KC_TAB),  LCTL(KC_Q),    LCTL(KC_W),    LCTL(KC_E),  LCTL(KC_R),  LCTL(KC_T),  LCTL(KC_Y),  LCTL(KC_U),  LCTL(KC_I),  LCTL(KC_O),     LCTL(KC_P),    LCTL(KC_LBRC),  SGUI(KC_RBRC),  SGUI(KC_BSLS),     _______,       _______,       _______,        \
-        _______,       LCTL(KC_A),    LCTL(KC_S),    LCTL(KC_D),  LCTL(KC_F),  LCTL(KC_G),  KC_LEFT,     KC_DOWN,     KC_UP,       KC_RGHT,        LCTL(KC_SCLN), LCTL(KC_QUOTE),                 LCTL(KC_ENTER),                                                  \
+        LCTL(KC_ESC),                 LCTL(KC_F1),   LCTL(KC_F2), LCTL(KC_F3), LCTL(KC_F4), LCTL(KC_F5), LCTL(KC_F6), LCTL(KC_F7), LCTL(KC_F8),    LCTL(KC_F9),   LCTL(KC_F10),   LCTL(KC_F11),   LCTL(KC_F12),      ______,        ______,        ______,         \
+        LCTL(KC_GRV),  LCTL(KC_1),    LCTL(KC_2),    LCTL(KC_3),  LCTL(KC_4),  LCTL(KC_5),  LCTL(KC_6),  LCTL(KC_7),  LCTL(KC_8),  LCTL(KC_9),     LCTL(KC_0),    LCTL(KC_MINUS), LCTL(KC_EQUAL), LCTL(KC_BSPC),     ______,        ______,        ______,         \
+        LCTL(KC_TAB),  LCTL(KC_Q),    LCTL(KC_W),    LCTL(KC_E),  LCTL(KC_R),  LCTL(KC_T),  LCTL(KC_Y),  LCTL(KC_U),  LCTL(KC_I),  LCTL(KC_O),     LCTL(KC_P),    SGUI(KC_LBRC),  SGUI(KC_RBRC),  LCTL(KC_BSLS),     ______,        ______,        ______,         \
+        ______,        LCTL(KC_A),    LCTL(KC_S),    LCTL(KC_D),  LCTL(KC_F),  LCTL(KC_G),  KC_LEFT,     KC_DOWN,     KC_UP,       KC_RGHT,        LCTL(KC_SCLN), LCTL(KC_QUOTE),                 LCTL(KC_ENTER),                                                  \
         LCTL(KC_LSFT),                LCTL(KC_Z),    LCTL(KC_X),  LCTL(KC_C),  LCTL(KC_V),  LCTL(KC_B),  LCTL(KC_N),  LCTL(KC_M),  LCTL(KC_COMMA), LCTL(KC_DOT),  LCTL(KC_SLASH),                 LCTL(KC_RSFT),                    LCTL(KC_UP),                   \
-        KC_LCTL,       LCTL(KC_LALT), LCTL(KC_LGUI),                                        LCTL(KC_SPACE),                                        LCTL(KC_RGUI), LCTL(KC_RALT),  KC_NO,          KC_RCTL,           LCTL(KC_LEFT), LCTL(KC_DOWN), LCTL(KC_RIGHT)  \
+        KC_LCTL,       LCTL(KC_LALT), LCTL(KC_LGUI),                                        LCTL(KC_SPACE),                                        LCTL(KC_RGUI), LCTL(KC_RALT),  ______,         KC_RCTL,           LCTL(KC_LEFT), LCTL(KC_DOWN), LCTL(KC_RIGHT)  \
     ),
 };
 
