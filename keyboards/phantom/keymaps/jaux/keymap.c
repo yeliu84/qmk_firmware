@@ -39,12 +39,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_LCTL,         KC_LALT, KC_LGUI,                            KC_SPC,                             KC_RGUI, KC_RALT, MO(_LF1), KC_RCTL,      KC_LEFT, KC_DOWN, KC_RGHT  \
     ),
     [_LF1] = LAYOUT_tkl_ansi(
-        RESET,               ______,     ______, ______,           ______,       ______, ______, ______,           ______,              KC_MSTP,              KC_MPLY,       KC_MPRV,       KC_MNXT,           KC_MUTE, KC_VOLD, KC_VOLU, \
-        ______,  KC_F1,      KC_F2,      KC_F3,  KC_F4,            KC_F5,        KC_F6,  KC_F7,  KC_F8,            KC_F9,               KC_F10,               KC_F11,        KC_F12,        SGUI(KC_F12),      ______,  ______,  ______,  \
-        KC_TAB,  ______,     ______,     ______, LSFT(KC_F6),      LALT(KC_F12), ______, ______, ______,           ______,              SGUI(LALT(KC_P)),     SGUI(KC_LBRC), SGUI(KC_RBRC), ______,            ______,  ______,  ______,  \
-        KC_CAPS, SGUI(KC_A), SGUI(KC_F), ______, LALT(KC_F1),      ______,       ______, ______, LALT(LGUI(KC_K)), ______,              ______,               ______,                       KC_MSEL,                                      \
-        ______,              ______,     ______, LSFT(LALT(KC_I)), ______,       ______, ______, ______,           LALT(LGUI(KC_LEFT)), LALT(LGUI(KC_RIGHT)), LALT(LGUI(KC_F)),             ______,                     ______,           \
-        ______,  ______,     ______,                                             ______,                                                ______,               MO(_LF2),      ______,        ______,            ______,  ______,  ______   \
+        RESET,               ______,     ______, ______,      ______,       ______, ______, ______,           ______,              KC_MSTP,              KC_MPLY,       KC_MPRV,       KC_MNXT,           KC_MUTE, KC_VOLD, KC_VOLU, \
+        ______,  KC_F1,      KC_F2,      KC_F3,  KC_F4,       KC_F5,        KC_F6,  KC_F7,  KC_F8,            KC_F9,               KC_F10,               KC_F11,        KC_F12,        SGUI(KC_F12),      ______,  ______,  ______,  \
+        KC_TAB,  ______,     ______,     ______, LSFT(KC_F6), LALT(KC_F12), ______, ______, ______,           ______,              SGUI(LALT(KC_P)),     SGUI(KC_LBRC), SGUI(KC_RBRC), ______,            ______,  ______,  ______,  \
+        KC_CAPS, SGUI(KC_A), SGUI(KC_F), ______, LALT(KC_F1), ______,       ______, ______, LALT(LGUI(KC_K)), ______,              ______,               ______,                       KC_MSEL,                                      \
+        ______,              ______,     ______, LCA(KC_I),   ______,       ______, ______, ______,           LALT(LGUI(KC_LEFT)), LALT(LGUI(KC_RIGHT)), LALT(LGUI(KC_F)),             ______,                     ______,           \
+        ______,  ______,     ______,                                        ______,                                                ______,               MO(_LF2),      ______,        ______,            ______,  ______,  ______   \
     ),
     [_LF2] = LAYOUT_tkl_ansi(
         ______,            ______, ______, ______,       ______,       ______, ______, ______, ______, ______, ______, ______, ______,      ______, ______, ______, \
