@@ -24,7 +24,9 @@ enum preonic_layers {
   _LOWER,
   _RAISE,
   _ADJUST,
-  _LC
+  _LC,
+  _LF1,
+  _LF2
 };
 
 enum preonic_keycodes {
@@ -52,11 +54,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * `-----------------------------------------------------------------------------------'
  */
 [_QWERTY] = LAYOUT_preonic_grid( \
-  KC_GRV,           KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_BSPC, \
-  LALT_T(KC_TAB),   KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_DEL,  \
-  LT(_LC, KC_ESC),  KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT, \
-  KC_LSFT,          KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_ENT,  \
-  BACKLIT,          KC_LCTL, KC_LALT, KC_LGUI, LOWER,   KC_SPC,  KC_SPC,  RAISE,   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT  \
+  KC_GRV,          KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,  KC_8,    KC_9,    KC_0,    KC_BSPC, \
+  LALT_T(KC_TAB),  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,  KC_I,    KC_O,    KC_P,    KC_ENT,  \
+  LT(_LC, KC_ESC), KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,  KC_K,    KC_L,    KC_SCLN, KC_QUOT, \
+  KC_LSFT,         KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,  KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT, \
+  MO(_LF1),        KC_LCTL, KC_LALT, KC_LGUI, LOWER,   KC_SPC,  KC_SPC,  RAISE, KC_RGUI, KC_RALT, KC_RCTL, MO(_LF2) \
 ),
 
 /* Colemak
@@ -115,11 +117,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * `-----------------------------------------------------------------------------------'
  */
 [_LOWER] = LAYOUT_preonic_grid( \
-  KC_TILD, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,    KC_PERC,      KC_CIRC, KC_AMPR,       KC_ASTR,       KC_UNDS, KC_PLUS, _______, \
-  _______, _______, _______, _______, LCA(KC_R), LALT(KC_F12), _______, _______,       _______,       KC_MINS, KC_EQL,  _______, \
-  _______, _______, _______, _______, _______,   _______,      _______, SGUI(KC_LBRC), SGUI(KC_RBRC), KC_LCBR, KC_RCBR, _______, \
-  _______, _______, _______, _______, _______,   _______,      _______, _______,       _______,       KC_LBRC, KC_RBRC, _______, \
-  _______, _______, _______, _______, _______,   _______,      _______, _______,       KC_HOME,       KC_PGUP, KC_PGDN, KC_END   \
+  KC_TILD, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC, KC_CIRC, KC_AMPR, KC_ASTR, KC_MINS, KC_EQL,  _______, \
+  _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_LBRC, KC_RBRC, KC_BSLS, \
+  _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_MINS, KC_EQL,  KC_HOME, \
+  _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_UP,   KC_END,  \
+  _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_LEFT, KC_DOWN, KC_RIGHT \
 ),
 
 /* Raise
@@ -136,10 +138,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * `-----------------------------------------------------------------------------------'
  */
 [_RAISE] = LAYOUT_preonic_grid( \
-  KC_TILD, KC_F1,      KC_F2,      KC_F3,   KC_F4,        KC_F5,        KC_F6,   KC_F7,   KC_F8,               KC_F9,                KC_F10,           KC_F11,  \
-  KC_TAB,  LCA(KC_Q),  _______,    _______, LALT(KC_F11), SGUI(KC_F12), _______, _______, _______,             _______,              SGUI(LALT(KC_P)), KC_F12,  \
+  KC_F1,   KC_F2,      KC_F3,      KC_F4,   KC_F5,        KC_F6,        KC_F7,   KC_F8,   KC_F9,               KC_F10,               KC_F11,           KC_F12,  \
+  KC_TAB,  LCA(KC_Q),  _______,    _______, LALT(KC_F11), SGUI(KC_F12), _______, _______, _______,             _______,              _______,          _______, \
   KC_CAPS, SGUI(KC_A), SGUI(KC_F), _______, LALT(KC_F1),  _______,      _______, _______, LALT(LGUI(KC_K)),    _______,              _______,          _______, \
-  KC_LSFT, _______,    _______,    _______, _______,      _______,      _______, _______, LALT(LGUI(KC_LEFT)), LALT(LGUI(KC_RIGHT)), LALT(LGUI(KC_F)), _______, \
+  _______, _______,    _______,    _______, _______,      _______,      _______, _______, LALT(LGUI(KC_LEFT)), LALT(LGUI(KC_RIGHT)), LALT(LGUI(KC_F)), _______, \
   _______, _______,    _______,    _______, _______,      _______,      _______, _______, _______,             _______,              _______,          _______  \
 ),
 
@@ -183,8 +185,49 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   _______,       LCTL(KC_A), LCTL(KC_S),    LCTL(KC_D),    LCTL(KC_F),   LCTL(KC_G),   KC_LEFT,      KC_DOWN,      KC_UP,         KC_RIGHT,      LCTL(KC_SCLN), LCTL(KC_QUOT), \
   LCTL(KC_LSFT), LCTL(KC_Z), LCTL(KC_X),    LCTL(KC_C),    LCTL(KC_V),   LCTL(KC_B),   LCTL(KC_N),   LCTL(KC_M),   LCTL(KC_COMM), LCTL(KC_DOT),  LCTL(KC_SLSH), LCTL(KC_RSFT), \
   KC_CAPS,       _______,    LCTL(KC_LALT), LCTL(KC_LGUI), LCTL(KC_SPC), LCTL(KC_SPC), LCTL(KC_SPC), LCTL(KC_SPC), LCTL(KC_LEFT), LCTL(KC_UP),   LCTL(KC_DOWN), LCTL(KC_RIGHT) \
-)
+),
 
+/* Function layer 1
+ * ,-----------------------------------------------------------------------------------.
+ * |  F1  |  F2  |  F3  |  F4  |  F5  |  F6  |  F7  |  F8  |  F9  |  F10 |  F11 |  F12 |
+ * |------+------+------+------+------+------+------+------+------+------+------+------|
+ * |      | Reset|      |      |      |      |      |      |      |      |      |  Del |
+ * |------+------+------+------+------+-------------+------+------+------+------+------|
+ * |      |      |      |Aud on|AudOff|AGnorm|AGswap|Qwerty|Colemk|Dvorak|      |      |
+ * |------+------+------+------+------+------|------+------+------+------+------+------|
+ * |      |Voice-|Voice+|Mus on|MusOff|MidiOn|MidOff|      |      |      |      |      |
+ * |------+------+------+------+------+------+------+------+------+------+------+------|
+ * |      |      |      |      |      |             |      |      |      |      |      |
+ * `-----------------------------------------------------------------------------------'
+ */
+[_LF1] = LAYOUT_preonic_grid( \
+   KC_ESC,  _______, _______, _______, _______, _______, _______, _______, _______,       KC_UNDS,       KC_PLUS, _______, \
+   _______, _______, _______, _______, _______, _______, _______, _______, _______,       KC_LCBR,       KC_RCBR, KC_PIPE, \
+   _______, _______, _______, _______, _______, _______, _______, _______, _______,       _______,       _______, _______, \
+   _______, _______, _______, _______, _______, _______, _______, _______, SGUI(KC_LBRC), SGUI(KC_RBRC), _______, _______, \
+   _______, _______, _______, _______, _______, _______, _______, _______, _______,       _______,       _______, _______  \
+),
+
+/* Function layer 2
+ * ,-----------------------------------------------------------------------------------.
+ * |  F1  |  F2  |  F3  |  F4  |  F5  |  F6  |  F7  |  F8  |  F9  |  F10 |  F11 |  F12 |
+ * |------+------+------+------+------+------+------+------+------+------+------+------|
+ * |      | Reset|      |      |      |      |      |      |      |      |      |  Del |
+ * |------+------+------+------+------+-------------+------+------+------+------+------|
+ * |      |      |      |Aud on|AudOff|AGnorm|AGswap|Qwerty|Colemk|Dvorak|      |      |
+ * |------+------+------+------+------+------|------+------+------+------+------+------|
+ * |      |Voice-|Voice+|Mus on|MusOff|MidiOn|MidOff|      |      |      |      |      |
+ * |------+------+------+------+------+------+------+------+------+------+------+------|
+ * |      |      |      |      |      |             |      |      |      |      |      |
+ * `-----------------------------------------------------------------------------------'
+ */
+[_LF2] = LAYOUT_preonic_grid( \
+   KC_ESC,  _______, _______, _______, _______,   _______,      _______, _______, _______, _______, _______, _______, \
+   _______, _______, _______, _______, LCA(KC_R), LALT(KC_F12), _______, _______, _______, _______, _______, _______, \
+   _______, _______, _______, _______, _______,   _______,      _______, _______, _______, _______, _______, _______, \
+   _______, _______, _______, _______, _______,   _______,      _______, _______, _______, _______, _______, _______, \
+   _______, _______, _______, _______, _______,   _______,      _______, _______, _______, _______, _______, _______  \
+)
 
 };
 
