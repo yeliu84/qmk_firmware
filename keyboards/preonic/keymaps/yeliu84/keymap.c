@@ -163,7 +163,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   _______, RESET,   DEBUG,   _______, _______, _______, _______, TERM_ON, TERM_OFF,_______, _______, KC_DEL,  \
   _______, _______, MU_MOD,  AU_ON,   AU_OFF,  AG_NORM, AG_SWAP, QWERTY,  COLEMAK, DVORAK,  _______, _______, \
   _______, MUV_DE,  MUV_IN,  MU_ON,   MU_OFF,  MI_ON,   MI_OFF,  _______, _______, _______, _______, _______, \
-  _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______  \
+  BACKLIT, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______  \
 ),
 
 /* Ctrl layter
@@ -273,18 +273,19 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
           break;
         case BACKLIT:
           if (record->event.pressed) {
-            register_code(KC_RSFT);
-            #ifdef BACKLIGHT_ENABLE
-              backlight_step();
-            #endif
-            #ifdef __AVR__
-            writePinLow(E6);
-            #endif
+            //register_code(KC_RSFT);
+            //#ifdef BACKLIGHT_ENABLE
+            //  backlight_step();
+            //#endif
+            //#ifdef __AVR__
+            //writePinLow(E6);
+            //#endif
+            rgblight_toggle_noeeprom();
           } else {
-            unregister_code(KC_RSFT);
-            #ifdef __AVR__
-            writePinHigh(E6);
-            #endif
+            //unregister_code(KC_RSFT);
+            //#ifdef __AVR__
+            //writePinHigh(E6);
+            //#endif
           }
           return false;
           break;
